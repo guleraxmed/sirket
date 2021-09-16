@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+    <title>Document</title>
+</head>
+<style>
+
+    
+</style>
+<body>
+  <h1></h1>
+  <h2></h2>
+  <table border="1" cellspacing="0" id="table" >
+  </table>
+    <!-- Button trigger modal -->
+<button type="button" class="  m-5 btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Əlavə edin
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <input type="text" name="name" id="name" class="form-control my-2">
+          <input type="text" name="position" id="position" class="form-control my-2">
+          <input type="number" name="salary" id="salary" class="form-control my-2">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Ləğv et</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="Save()" >Yadda saxla</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <section></section>
+ 
+<script>
+
+class Sirket{
+  isciler=[
+  [],
+  [],
+  []
+];
+
+constructor(sirketAdi,filialAdi){
+  this.Sirket=sirketAdi;
+  this.Filial=filialAdi
+}
+
+gonder(){
+      let ad= document.getElementById("name").value;
+      let vezife= document.getElementById("position").value;
+      let maas= document.getElementById("salary").value;
+
+      this.isciler[0].push(ad);
+      this.isciler[1].push(ad);
+      this.isciler[2].push(ad);
+      
+}
+iscilerTable(){
+      let ad= document.getElementById("name").value;
+      let vezife= document.getElementById("position").value;
+      let maas= document.getElementById("salary").value;
+
+      let inp= document.getElementsByTagName("input")
+
+  let tbl="";
+  tbl = `<table class="table">
+    <tr>
+    <th>№</th>
+    <th>Ad</th>
+    <th>Vezife</th>
+    <th>Maas</th>
+  </tr>`;
+  for(let i=0; i<inp.length; i++){
+    tbl += `<tr>
+    <th></th>
+    <th>${this.isciler[0].push(ad)}</th>
+    <th>${this.isciler[1].push(ad)}</th>
+    <th>${this.isciler[2].push(ad)}</th>
+  </tr> `
+  }
+  tbl += `<table>`;
+  document.getElementsByTagName("section").innerHTML = tbl;
+}
+
+}
+const a = new Sirket("Yuptech" , "Nizami");
+document.getElementsByTagName("h1")[0].innerHTML = a.Sirket ;
+document.getElementsByTagName("h2")[0].innerHTML = a.Filial + " Filali";
+
+function Save(){
+  document.getElementsByTagName("section")[0].innerHTML = a.gonder();
+  document.getElementsByTagName("section")[0].innerHTML = a.iscilerTable();
+}
+
+
+
+
+     
+
+
+
+    
+
+
+</script>
+
+</body>
+</html>
